@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Macwalls</title>
+        <item>
+            <title>1.0.0</title>
+            <pubDate>Wed, 18 Nov 2026 16:31:10 +0530</pubDate>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://macwalls.vercel.app/Macwalls-1.0.0.dmg" length="6365005" type="application/octet-stream" sparkle:edSignature="f8rdagS6jGax2QEMtYlFR3+KrnIrKekc4UKOTbzB2NrcER2acWjX2lbzfR//4k1K9/A1k8IO/TAyI5cNlgHpCw=="/>
+        </item>
+    </channel>
+</rss>
