@@ -3,6 +3,17 @@
     <channel>
         <title>Macwalls</title>
         <item>
+            <title>1.0.1</title>
+            <pubDate>Fri, 20 Nov 2026 16:21:29 +0530</pubDate>
+            <sparkle:version>2</sparkle:version>
+            <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://macwalls-app.vercel.app/Macwalls-1.0.1.dmg" length="6414930" type="application/octet-stream" sparkle:edSignature="FgJs1La4ME7pwFT2aXjlsnC0A3fx5srftpCdnljxPXlckEeX5nQVLcuhPzcVCMZaa/efEsMPylajZmzw1EnSBg=="/>
+            <sparkle:deltas>
+                <enclosure url="https://macwalls-app.vercel.app/Macwalls2-1.delta" sparkle:deltaFrom="1" length="384610" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="827856" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="vRl0+qzeAZ8NwR/eq9WR6O/ORbAHpPHRp2LyPwZVnc4RKcGsjxSgjqBAt9qf1qXSP/LQIvIfKDvMm2zVc+mxBw=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>1.0.0</title>
             <pubDate>Wed, 18 Nov 2026 16:31:10 +0530</pubDate>
             <sparkle:version>1</sparkle:version>
