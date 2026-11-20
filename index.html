@@ -939,6 +939,56 @@ h2 {
 .lp {
   width: min(1080px, 100%);
 }
+.lps video.lap-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+  z-index: 1;
+  cursor: pointer;
+}
+.lap-ctrls {
+  position: absolute;
+  bottom: clamp(10px, 2vw, 18px);
+  right: clamp(12px, 2.2vw, 20px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+.lap-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(5px, 0.9vw, 8px);
+  padding: clamp(5px, 0.9vw, 8px) clamp(10px, 1.6vw, 16px);
+  background: rgba(11, 16, 14, 0.78);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 99px;
+  color: #fff;
+  font-size: clamp(11px, 1.25vw, 13px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+.lap-btn:hover {
+  background: rgba(21, 61, 48, 0.92);
+  border-color: rgba(181, 214, 107, 0.55);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.55), 0 0 16px rgba(181, 214, 107, 0.25);
+}
+.lap-btn svg {
+  width: clamp(13px, 1.5vw, 16px);
+  height: clamp(13px, 1.5vw, 16px);
+  display: block;
+  flex: none;
+}
 
 /* Pricing Section */
 .tiers {
@@ -1100,13 +1150,18 @@ dialog#md {
   </div>
 </section>
 
-<section class="lap">
+<section class="lap" id="demo-motion">
   <div class="corridor" id="corridor" aria-hidden="true"></div>
   <div class="lp"><div class="lid"><div class="lps">
-    <svg viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="sk" x2="0" y2="1"><stop stop-color="#b9c6d3"/><stop offset="1" stop-color="#e3e9ee"/></linearGradient><linearGradient id="se" x2="0" y2="1"><stop stop-color="#5d86a8"/><stop offset="1" stop-color="#1c466c"/></linearGradient></defs><rect width="160" height="100" fill="url(#sk)"/><rect y="38" width="160" height="62" fill="url(#se)"/><path d="M0 34c20-2 50-4 70 2l8 6-20 4-30 6H0z" fill="#7b6e52"/><path d="M0 40 28 38 60 52 90 100H0z" fill="#262a30"/><path d="M60 52C85 62 110 80 160 84v16H90z" fill="#e8eef2" opacity=".8"/><path d="M70 100c30-14 60-12 90-8v8z" fill="#f4f8fa" opacity=".85"/></svg>
-    <div class="dock ld"></div><div class="nt"></div><div class="mbar"><span>&#63743; &nbsp;<b>Macwalls</b>&nbsp; File &nbsp;Edit &nbsp;View</span><span>Mon 16 Nov &nbsp;9:41</span></div>
-    <div class="aw"><div class="tb"><span class="tl"><i></i><i></i><i></i></span><span class="pl">Home &nbsp; Explore &nbsp; Library</span><span class="pl">Upload</span></div><h4>Sea Cliffs</h4><div style="opacity:.85">Mountains · 3840×2160 · 85MB</div>
-    <div class="th"><i style="background:#8a4fc0"></i><i style="background:#b9784a"></i><i style="background:#4f7fd0"></i><i style="background:#6c8aa8;outline:1.5px solid #fff"></i><i style="background:#555"></i><i style="background:#8a2a2a"></i></div></div>
+    <video class="lap-video" id="lapVideo" src="wallpapers/macwalls-motion.mp4" poster="wallpapers/macwalls-motion.jpg" autoplay loop muted playsinline preload="auto"></video>
+    <div class="nt" aria-hidden="true"></div>
+    <div class="lap-ctrls">
+      <button class="lap-btn" id="lapSoundBtn" type="button" aria-label="Toggle sound">
+        <svg class="ico-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+        <svg class="ico-unmuted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+        <span class="sound-label">Sound on</span>
+      </button>
+    </div>
   </div></div><div class="lb"></div></div>
 </section>
 
@@ -1345,9 +1400,39 @@ const items=[...list.children];
 function play(k){cur=k;items.forEach((e,i)=>{e.classList.remove('on');if(i===k){void e.offsetWidth;e.classList.add('on')}});pv.classList.remove('on');void pv.offsetWidth;pv.classList.add('on');const w=W(k+1);pv.querySelectorAll('video').forEach(v=>v.remove());pv.prepend(vid(w));now.textContent=w.name;clearTimeout(timer);timer=setTimeout(()=>{const sh=document.getElementById('pshuf').checked;let n=sh?Math.floor(Math.random()*N):(cur+1)%N;if(sh&&n===cur)n=(cur+1)%N;play(n)},5000)}
 root.querySelectorAll('#pchips button').forEach(b=>b.onclick=()=>{root.querySelectorAll('#pchips button').forEach(x=>x.classList.remove('on'));b.classList.add('on')});
 play(0)})();
-const th=[...document.querySelectorAll('.th i')],ls=document.querySelector('.lps');
-th.forEach((t,k)=>{t.style.background=bg(W(k));t.onclick=()=>{const w=W(k);ls.querySelector('svg').style.opacity=0;morphTo(ls,w.poster,{onDone:()=>{ls.querySelector('.wv')?.remove();ls.prepend(vid(w))}});const h=ls.querySelector('h4');h.textContent=w.name;h.nextElementSibling.textContent=w.meta;th.forEach(x=>x.style.outline='');t.style.outline='1.5px solid #fff'}});
-th[0]&&th[0].click();
+const lapVid=document.getElementById('lapVideo');
+const lapBtn=document.getElementById('lapSoundBtn');
+if(lapVid&&lapBtn){
+  const icoMuted=lapBtn.querySelector('.ico-muted');
+  const icoUnmuted=lapBtn.querySelector('.ico-unmuted');
+  const label=lapBtn.querySelector('.sound-label');
+  lapBtn.addEventListener('click',e=>{
+    e.stopPropagation();
+    lapVid.muted=!lapVid.muted;
+    if(!lapVid.muted){
+      lapVid.play().catch(()=>{});
+      icoMuted.style.display='none';
+      icoUnmuted.style.display='block';
+      label.textContent='Mute';
+    }else{
+      icoMuted.style.display='block';
+      icoUnmuted.style.display='none';
+      label.textContent='Sound on';
+    }
+  });
+  lapVid.addEventListener('click',()=>{
+    if(lapVid.paused){lapVid.play()}else{lapVid.pause()}
+  });
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(es=>{
+      es.forEach(en=>{
+        if(en.isIntersecting){lapVid.play().catch(()=>{})}
+        else{lapVid.pause()}
+      })
+    },{threshold:0.15});
+    io.observe(lapVid);
+  }
+}
 const S=b=>"<svg viewBox='0 0 64 64' width='100%' height='100%'>"+b+"</svg>";
 const gr=(i,a,b)=>"<defs><linearGradient id='"+i+"' x2='0' y2='1'><stop stop-color='"+a+"'/><stop offset='1' stop-color='"+b+"'/></linearGradient></defs><rect width='64' height='64' fill='url(#"+i+")'/>";
 const lc=['#ff5f57','#febc2e','#28c840','#0a84ff','#bf5af2','#ff9f0a','#64d2ff','#ff375f','#30d158'];
@@ -1365,7 +1450,7 @@ Trash:S("<path d='M17 18h30l-3 38H20z' fill='#cfd3da' fill-opacity='.7' stroke='
 const D=['Finder','Launchpad','Safari','Messages','Mail','Notes','Music','Settings','Macwalls'].map(n=>'<span class="dk'+(n==='Finder'||n==='Macwalls'?' run':'')+'" title="'+n+'"><div class="ai">'+IC[n]+'</div></span>').join('')+'<span class="dv"></span><span class="dk" title="Trash"><div class="ai t">'+IC.Trash+'</div></span>';
 document.querySelectorAll('.dock').forEach(d=>{d.innerHTML=D;const ks=[...d.querySelectorAll('.dk')];d.addEventListener('pointermove',e=>ks.forEach(k=>{const r=k.getBoundingClientRect(),x=e.clientX-(r.left+r.width/2);k.style.transform='scale('+(1+.6*Math.exp(-(x*x)/(2*r.width*r.width*1.2)))+')'}));d.addEventListener('pointerleave',()=>ks.forEach(k=>k.style.transform=''))});
 const ST='<svg width="16" height="12" viewBox="0 0 16 12"><path d="M1 4a10 10 0 0 1 14 0M3.5 6.8a6.5 6.5 0 0 1 9 0M6 9.5a3 3 0 0 1 4 0" stroke="#fff" fill="none" stroke-width="1.4" stroke-linecap="round"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" stroke="#fff" opacity=".6" fill="none"/><rect x="2" y="2" width="15" height="8" rx="1.5" fill="#fff"/></svg>';
-const lm=document.querySelector('.lps .mbar span:last-child');lm.style.display='flex';lm.style.gap='8px';lm.style.alignItems='center';lm.innerHTML=ST+'<span class="mt"></span>';
+const lm=document.querySelector('.lps .mbar span:last-child');if(lm){lm.style.display='flex';lm.style.gap='8px';lm.style.alignItems='center';lm.innerHTML=ST+'<span class="mt"></span>';}
 const mtk=()=>document.querySelectorAll('.mt').forEach(e=>e.textContent=new Date().toLocaleString('en-US',{weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}).replace(/,/g,''));mtk();setInterval(mtk,30000);
 st.querySelectorAll('.ic button').forEach(b=>b.addEventListener('click',()=>{st.querySelectorAll('.ic button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel')}));
 function snow(el){const c=document.createElement('canvas');c.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none';el.appendChild(c);const x=c.getContext('2d');let W,H;const rs=()=>{W=c.width=el.clientWidth||1;H=c.height=el.clientHeight||1};rs();addEventListener('resize',rs);const P=[...Array(120)].map(()=>({x:Math.random(),y:Math.random(),r:.6+Math.pow(Math.random(),2)*3,v:.03+Math.random()*.07,d:Math.random()*6.28}));(function f(){if(el.offsetParent){if(c.width!==el.clientWidth)rs();x.clearRect(0,0,W,H);P.forEach(p=>{p.y+=p.v*.016;p.d+=.012;if(p.y>1.03){p.y=-.03;p.x=Math.random()}x.globalAlpha=.3+p.r/5;x.shadowBlur=p.r>2?8:0;x.shadowColor='#fff';x.fillStyle='#fff';x.beginPath();x.arc((p.x+Math.sin(p.d)*.012)*W,p.y*H,p.r*W/900+.4,0,6.3);x.fill()})}requestAnimationFrame(f)})()}
