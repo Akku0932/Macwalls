@@ -73,16 +73,36 @@ export default async function handler(req, res) {
       fetch(`https://counterapi.com/api/macwalls-app.vercel.app/up/dau_${today}`).catch(() => {})
     );
 
-    // 4. Optional external Webhook (Discord / Slack / Telegram) if set in Vercel Env
-    if (process.env.PING_WEBHOOK_URL) {
-      const webhookPayload = {
-        content: `🟢 **Macwalls App Ping** (${reason})\n• **User:** \`${deviceId.slice(0, 8)}...\`\n• **Version:** v${version} (Build ${build})\n• **System:** ${os} (${chip} - ${model})\n• **Location:** ${city}, ${country}\n• **First Launch:** ${isFirstLaunch ? '🎉 Yes' : 'No'}`
+    // 4. Discord Webhook notification (Rich Embed)
+    // Only send for launches (skip silent 4-hour background heartbeats so Discord isn't spammed)
+    if (process.env.PING_WEBHOOK_URL && reason !== 'heartbeat') {
+      const isNew = isFirstLaunch;
+      const embedColor = isNew ? 0x10b981 : 0x3b82f6; // Emerald green for new users, Ocean blue for returning
+
+      const embed = {
+        title: isNew ? '🎉 New Macwalls User Installed!' : '🚀 Macwalls App Launched',
+        color: embedColor,
+        fields: [
+          { name: 'App Version', value: `v${version} (Build ${build})`, inline: true },
+          { name: 'Hardware', value: `${chip} (${model})`, inline: true },
+          { name: 'macOS', value: os, inline: true },
+          { name: 'Location', value: `${city !== 'unknown' ? city + ', ' : ''}${country}`, inline: true },
+          { name: 'User ID', value: `\`${deviceId.slice(0, 8)}...\``, inline: true },
+          { name: 'Type', value: isNew ? '✨ First Ever Launch' : 'Returning User', inline: true }
+        ],
+        footer: { text: 'Macwalls Telemetry • macwalls-app.vercel.app' },
+        timestamp: new Date().toISOString()
       };
+
       promises.push(
         fetch(process.env.PING_WEBHOOK_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(webhookPayload)
+          body: JSON.stringify({
+            username: 'Macwalls Tracker',
+            avatar_url: 'https://macwalls-app.vercel.app/macwallslogo.png',
+            embeds: [embed]
+          })
         }).catch(() => {})
       );
     }
