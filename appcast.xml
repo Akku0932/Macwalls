@@ -3,6 +3,18 @@
     <channel>
         <title>Macwalls</title>
         <item>
+            <title>1.0.2</title>
+            <pubDate>Fri, 20 Nov 2026 18:11:39 +0530</pubDate>
+            <sparkle:version>3</sparkle:version>
+            <sparkle:shortVersionString>1.0.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://macwalls-app.vercel.app/Macwalls-1.0.2.dmg" length="6413913" type="application/octet-stream" sparkle:edSignature="hwt26MFWe4DbgzE39RQZltuxuTLqHZwd/0Bm0Mrz2Wl+UNyDqnYH7wKk/vU+e9RyIg/yqYxtUk4ExflHb2BJCQ=="/>
+            <sparkle:deltas>
+                <enclosure url="https://macwalls-app.vercel.app/Macwalls3-2.delta" sparkle:deltaFrom="2" length="111770" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="827856" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="N5MTxODLNiK7DM2KZ4Iuu2rWf24YGX7Sb7PykyXR6s2i178X6KciM1ZXhfw2/reAo55JTMQR2iwfQKALtaY1CA=="/>
+                <enclosure url="https://macwalls-app.vercel.app/Macwalls3-1.delta" sparkle:deltaFrom="1" length="384618" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="827856" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="BlUhcJ5U5NSS9O0PKYPeqg9L4t1oJwDIqPx5+qqFqHEdcWB109snUPESfjvh/kaEXfvc/J7Dww0cny3KmhFSBw=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>1.0.1</title>
             <pubDate>Fri, 20 Nov 2026 16:21:29 +0530</pubDate>
             <sparkle:version>2</sparkle:version>
