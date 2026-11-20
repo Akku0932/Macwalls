@@ -8,7 +8,7 @@
             <sparkle:version>4</sparkle:version>
             <sparkle:shortVersionString>1.0.3</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://macwalls-app.vercel.app/Macwalls-1.0.3.dmg" length="6414087" type="application/octet-stream" sparkle:edSignature="T+5QzxDlrfdEJDDhquVRrAgNJTxIrZch6cZ1O1VqVjXSldcgX2lEuwgy6d++l+rdiHJhVNk7bsSAFZbban4TBQ=="/>
+            <enclosure url="https://macwalls-app.vercel.app/Macwalls-1.0.3.dmg" length="6418136" type="application/octet-stream" sparkle:edSignature="97N1aZ164sWznnubxDLIEEuZs0nhJk2G5UaKs5KDH8C6SSEDOm/RX7SQDoVRQBwLZRBkDH6E656/8G/GcF9sCw=="/>
         </item>
         <item>
             <title>1.0.2</title>
