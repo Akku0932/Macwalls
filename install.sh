@@ -22,7 +22,7 @@ cleanup() {
 }
 trap cleanup EXIT
 
-DMG_URL="https://macwalls-app.vercel.app/Macwalls.dmg"
+DMG_URL="https://macwalls-app.vercel.app/api/download"
 DMG_PATH="$TMP_DIR/Macwalls.dmg"
 
 echo "==> Downloading Macwalls..."
