@@ -3,6 +3,15 @@
     <channel>
         <title>Macwalls</title>
         <item>
+            <title>1.0.8</title>
+            <pubDate>Mon, 23 Nov 2026 01:36:39 +0530</pubDate>
+            <sparkle:criticalUpdate/>
+            <sparkle:version>9</sparkle:version>
+            <sparkle:shortVersionString>1.0.8</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://macwalls-app.vercel.app/Macwalls-1.0.8.dmg" length="6427835" type="application/octet-stream" sparkle:edSignature="D9O8MHGda5jb3qnbnRx6n9So8DVpk8Qwlh03jdOFDSMMydSoyPZhsHFy6VY3c6eRmAFlBoq6wgxmoTN9wdepCQ=="/>
+        </item>
+        <item>
             <title>1.0.7</title>
             <pubDate>Sat, 21 Nov 2026 00:13:32 +0530</pubDate>
             <sparkle:criticalUpdate/>
@@ -19,15 +28,6 @@
             <sparkle:shortVersionString>1.0.6</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <enclosure url="https://macwalls-app.vercel.app/Macwalls-1.0.6.dmg" length="6418827" type="application/octet-stream" sparkle:edSignature="0h4euXk0zQx6G6RWwagJZtBaeLgzKDIWEyq/511cYQkVSJkrWVEnppN6EKPBsGCo0rcQ/MbES45FyRGPHcP7CA=="/>
-        </item>
-        <item>
-            <title>1.0.5</title>
-            <pubDate>Fri, 20 Nov 2026 23:44:58 +0530</pubDate>
-            <sparkle:criticalUpdate/>
-            <sparkle:version>6</sparkle:version>
-            <sparkle:shortVersionString>1.0.5</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://macwalls-app.vercel.app/Macwalls-1.0.5.dmg" length="6418607" type="application/octet-stream" sparkle:edSignature="PymcGFfT6E89+AzBXeHWdjDxV06TrA+IISV7EFpzmYTbAvlnFnKmeS0qk6+n/DX/fu2URhbRytQUrgFVY6n3BA=="/>
         </item>
     </channel>
 </rss>
